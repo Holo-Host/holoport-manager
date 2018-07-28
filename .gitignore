@@ -1,0 +1,4 @@
+result/
+.idea
+src/*/__pycache__
+.vagrant
