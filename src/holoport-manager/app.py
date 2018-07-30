@@ -16,7 +16,7 @@ def support():
         print(sshpubkey)
         return jsonify(sshpubkey)
     else:
-        return jsonify(readings="GET")
+        return jsonify(response="GET")
 
 
 if __name__ == '__main__':
