@@ -3,4 +3,7 @@ src/holoport_manager_api/result*
 src/*/__pycache__
 .vagrant
 src/holoport_manager_api/db.sqlite3
-src/holoport_manager_api/*/__pycache__
+src/holoport_manager_api/*/__pycache__/
+src/holoport_manager_api/*/*/__pycache__/
+__pycache__
+.pyc
