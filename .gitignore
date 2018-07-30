@@ -1,4 +1,4 @@
-result/
+src/holoport-manager-api/result*
 .idea
 src/*/__pycache__
 .vagrant
