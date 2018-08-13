@@ -1,4 +1,5 @@
 src/holoport_manager_api/result*
+src/examples/django/result
 .idea
 src/*/__pycache__
 .vagrant
