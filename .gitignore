@@ -8,3 +8,4 @@ src/holoport_manager_api/*/__pycache__/
 src/holoport_manager_api/*/*/__pycache__/
 __pycache__
 .pyc
+*db.sqlite3
