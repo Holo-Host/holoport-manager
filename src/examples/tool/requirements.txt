@@ -1,4 +1,0 @@
-zest.releaser [recommended]
-zest.pocompile
-gocept.zestreleaser.customupload
-pyroma==2.2
