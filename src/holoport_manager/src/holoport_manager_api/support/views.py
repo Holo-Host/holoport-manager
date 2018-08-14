@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User, Group
+from support.models import SupportSession
 from rest_framework import viewsets
-from holoport_manager_api.support.serializers import UserSerializer, GroupSerializer
+from holoport_manager_api.support.serializers import UserSerializer, GroupSerializer, SupportSessionSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -17,3 +18,10 @@ class GroupViewSet(viewsets.ModelViewSet):
     """
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
+
+class SupportSessionViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = SupportSession.objects.all()
+    serializer_class = SupportSessionSerializer
