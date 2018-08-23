@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User, Group
 from support.models import SupportSession
-from rest_framework import viewsets
+from rest_framework import status, viewsets
 from holoport_manager_api.support.serializers import UserSerializer, GroupSerializer, SupportSessionSerializer
 
 

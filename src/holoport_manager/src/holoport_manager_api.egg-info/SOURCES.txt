@@ -18,4 +18,6 @@ src/holoport_manager_api/support/models.py
 src/holoport_manager_api/support/serializers.py
 src/holoport_manager_api/support/tests.py
 src/holoport_manager_api/support/views.py
+src/holoport_manager_api/support/migrations/0001_initial.py
+src/holoport_manager_api/support/migrations/0002_supportsession_uuid.py
 src/holoport_manager_api/support/migrations/__init__.py

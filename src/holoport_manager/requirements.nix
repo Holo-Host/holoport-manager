@@ -23,6 +23,17 @@ self: super: {
       sha256 = "0dv184lgp7scq8cr4422rrvkd8npyiqww0zw50ygcim5smw6093z";
     };
   };
+  "django-limits" = super.buildPythonPackage {
+    name = "django-limits-0.0.5";
+    doCheck = false;
+    propagatedBuildInputs = [
+      self."django"
+    ];
+    src = fetchurl {
+      url = "https://files.pythonhosted.org/packages/bd/bc/a081fac5d586c370333fa1f3ef93cc9fcc5936d4af30f0e3e679c1a7d487/django-limits-0.0.5.tar.gz";
+      sha256 = "0r01004yg6pmi2ldv4ssd850bhfbcs4zhzg3qq8hs8z0bg2sxxrq";
+    };
+  };
   "djangorestframework" = super.buildPythonPackage {
     name = "djangorestframework-3.8.2";
     doCheck = false;
