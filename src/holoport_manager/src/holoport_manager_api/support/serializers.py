@@ -17,4 +17,4 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 class SupportSessionSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = SupportSession
-        fields = ('id', 'name', 'public_key')
+        fields = ('id', 'name', 'public_key', 'uuid')
