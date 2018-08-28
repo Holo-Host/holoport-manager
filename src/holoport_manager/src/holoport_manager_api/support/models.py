@@ -1,5 +1,6 @@
 import uuid
 import os
+import subprocess
 from django.db import models
 from django.core.files import File
 from django.dispatch import receiver
@@ -16,6 +17,7 @@ class SupportSession(models.Model):
         support_key.write(self.public_key)
         f.close()
         support_key.close()
+        subprocess.run(['sudo', 'systemctl', 'start', 'sshd.service'])
         super().save(*args, **kwargs)
 
 @receiver(models.signals.post_delete, sender=SupportSession)
@@ -27,3 +29,4 @@ def auto_delete_file_on_delete(sender, instance, **kwargs):
     path = '/home/holoport/.ssh/support_key'
     if os.path.isfile(path):
         os.remove(path)
+        subprocess.run(['sudo', 'systemctl', 'stop', 'sshd.service'])
