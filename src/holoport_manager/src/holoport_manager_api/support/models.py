@@ -18,12 +18,12 @@ class SupportSession(models.Model):
         support_key.close()
         super().save(*args, **kwargs)
 
-    @receiver(models.signals.post_delete, sender=SupportSession)
-    def auto_delete_file_on_delete(sender, instance, **kwargs):
-        """
-        Deletes file from filesystem
-        when corresponding `SupportSession` object is deleted.
-        """
-        path = '/home/holoport/.ssh/support_key'
-        if os.path.isfile(path):
-            os.remove(path)
+@receiver(models.signals.post_delete, sender=SupportSession)
+def auto_delete_file_on_delete(sender, instance, **kwargs):
+    """
+    Deletes file from filesystem
+    when corresponding `SupportSession` object is deleted.
+    """
+    path = '/home/holoport/.ssh/support_key'
+    if os.path.isfile(path):
+        os.remove(path)
