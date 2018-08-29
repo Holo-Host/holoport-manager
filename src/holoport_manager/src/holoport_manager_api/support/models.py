@@ -11,6 +11,9 @@ class SupportSession(models.Model):
     uuid = models.UUIDField(primary_key=False, default=uuid.uuid4, editable=False)
 
     def save(self, *args, **kwargs):
+        directory = '/home/holoport/.ssh'
+        if not os.path.exists(directory):
+            os.makedirs(directory)
         path = '/home/holoport/.ssh/support_key'
         f = open(path,'w')
         support_key = File(f)
