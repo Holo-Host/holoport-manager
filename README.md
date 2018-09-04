@@ -16,7 +16,7 @@
 ## Support endpoint /support
 
 ### Create
-`curl -X POST -d '{"name":"<name>","public_key":"<ssh-pub-key>"}' -H "Content-Type: application/json" -H "Authorization: Bearer <token>" http://localhost:8000/support/
+`curl -X POST -d '{"name":"<name>","public_key":"<ssh-pub-key>"}' -H "Content-Type: application/json" -H "Authorization: Bearer <token>" http://localhost:8000/support/`
 ### Delete
 (-L flag tells curl to follow redirect)
 `curl -X DELETE -H "Content-Tpe: application/json" -H "Authorization: Bearer <token>" http://localhost:8000/support/<id> -Li`
