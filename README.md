@@ -3,20 +3,20 @@
 
 ## JWT /api-token-auth
 
-###Authenticate
+### Authenticate
 
-####Request
+#### Request
 `curl -X POST -H "Content-Type: application/json" -d '{"username":"<user>","password":"<password>"}' http://localhost:8000/api-token-auth/`
 
-####Response
+#### Response
 
 `{"token":"<token>"}`
 
 
-##Support endpoint /support
+## Support endpoint /support
 
-###Create
+### Create
 curl -X POST -d '{"name":"<name>","public_key":"<ssh-pub-key>"}' -H "Content-Type: application/json" -H "Authorization: Bearer <token>" http://localhost:8000/support/
-###Delete
+### Delete
 (-L flag tells curl to follow redirect)
 `curl -X DELETE -H "Content-Tpe: application/json" -H "Authorization: Bearer <token>" http://localhost:8000/support/<id> -Li`
