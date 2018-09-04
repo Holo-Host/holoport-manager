@@ -1,5 +1,12 @@
 ## Initial setup
 
+## Pulling updates
+
+1. Run `git pull origin <branch>`
+
+2. cd into directory where as holoport user`setup.nix` file lives, run `make nix-build` and changes should be merged
+
+3. If there are changes that require migrations, run `sudo nix-shell setup.nix -A develop` in the same dir where `setup.nix` lives, once in the nix-shell cd to the directory where `manage.py` lives, run `python manage.py migrate` then `exit` to leave shell, cd back to directory where `setup.nix` lives, run `make nix-build` again to complete
 
 ## JWT /api-token-auth
 
