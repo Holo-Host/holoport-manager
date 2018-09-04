@@ -1,5 +1,5 @@
 ## Initial setup
-
+(coming today/soon)
 ## Pulling updates
 
 1. Run `git pull origin <branch>`
