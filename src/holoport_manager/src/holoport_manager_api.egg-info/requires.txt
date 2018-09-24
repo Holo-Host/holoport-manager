@@ -1,0 +1,4 @@
+django
+djangorestframework
+djangorestframework-jwt
+django-limits

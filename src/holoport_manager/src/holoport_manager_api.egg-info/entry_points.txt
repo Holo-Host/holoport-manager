@@ -1,0 +1,3 @@
+[console_scripts]
+manage = holoport_manager_api.manage:main
+
