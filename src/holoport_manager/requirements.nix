@@ -23,6 +23,14 @@ self: super: {
       sha256 = "0dv184lgp7scq8cr4422rrvkd8npyiqww0zw50ygcim5smw6093z";
     };
   };
+  "django-cors-headers" = super.buildPythonPackage {
+    name = "django-cors-headers-2.4.0";
+    doCheck = false;
+    src = fetchurl {
+      url = "https://files.pythonhosted.org/packages/44/6d/1c036dd5280e4a0fa5e7fb09be38ce7da19c2698604096560af36ec49b1d/django-cors-headers-2.4.0.tar.gz";
+      sha256 = "1qfa9awsj3f0nwygb0vdh4ilcsfi6zinzng73cd5864x2fbyxhn4";
+    };
+  };
   "django-limits" = super.buildPythonPackage {
     name = "django-limits-0.0.5";
     doCheck = false;
