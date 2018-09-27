@@ -4,12 +4,61 @@
 { pkgs, fetchurl, fetchgit, fetchhg }:
 
 self: super: {
+  "MarkupSafe" = super.buildPythonPackage {
+    name = "MarkupSafe-1.0";
+    doCheck = false;
+    src = fetchurl {
+      url = "https://files.pythonhosted.org/packages/4d/de/32d741db316d8fdb7680822dd37001ef7a448255de9699ab4bfcbdf4172b/MarkupSafe-1.0.tar.gz";
+      sha256 = "0rdn1s8x9ni7ss8rfiacj7x1085lx8mh2zdwqslnw8xc3l4nkgm6";
+    };
+  };
   "PyJWT" = super.buildPythonPackage {
     name = "PyJWT-1.6.4";
     doCheck = false;
     src = fetchurl {
       url = "https://files.pythonhosted.org/packages/00/5e/b358c9bb24421e6155799d995b4aa3aa3307ffc7ecae4ad9d29fd7e07a73/PyJWT-1.6.4.tar.gz";
       sha256 = "0xi1nijkswi2sxq6448nhy3jxrw8mjppfibh8kxx6gymayri7r2f";
+    };
+  };
+  "certifi" = super.buildPythonPackage {
+    name = "certifi-2018.8.24";
+    doCheck = false;
+    src = fetchurl {
+      url = "https://files.pythonhosted.org/packages/e1/0f/f8d5e939184547b3bdc6128551b831a62832713aa98c2ccdf8c47ecc7f17/certifi-2018.8.24.tar.gz";
+      sha256 = "0f0nhrj9mlrf79iway4578wrsgmjh0fmacl9zv8zjckdy7b90rip";
+    };
+  };
+  "chardet" = super.buildPythonPackage {
+    name = "chardet-3.0.4";
+    doCheck = false;
+    src = fetchurl {
+      url = "https://files.pythonhosted.org/packages/fc/bb/a5768c230f9ddb03acc9ef3f0d4a3cf93462473795d18e9535498c8f929d/chardet-3.0.4.tar.gz";
+      sha256 = "1bpalpia6r5x1kknbk11p1fzph56fmmnp405ds8icksd3knr5aw4";
+    };
+  };
+  "coreapi" = super.buildPythonPackage {
+    name = "coreapi-2.3.3";
+    doCheck = false;
+    propagatedBuildInputs = [
+      self."coreschema"
+      self."requests"
+      self."itypes"
+      self."uritemplate"
+    ];
+    src = fetchurl {
+      url = "https://files.pythonhosted.org/packages/ca/f2/5fc0d91a0c40b477b016c0f77d9d419ba25fc47cc11a96c825875ddce5a6/coreapi-2.3.3.tar.gz";
+      sha256 = "1jy1zxw3zbaqjknds7q5j4lqmla1nrlljs7gl9vc05vh3z65y526";
+    };
+  };
+  "coreschema" = super.buildPythonPackage {
+    name = "coreschema-0.0.4";
+    doCheck = false;
+    propagatedBuildInputs = [
+      self."jinja2"
+    ];
+    src = fetchurl {
+      url = "https://files.pythonhosted.org/packages/93/08/1d105a70104e078718421e6c555b8b293259e7fc92f7e9a04869947f198f/coreschema-0.0.4.tar.gz";
+      sha256 = "01qn9bfkklpjkr0zn6bd5fr372n1jd5p455scw4ap0nl0xh500wm";
     };
   };
   "django" = super.buildPythonPackage {
@@ -42,6 +91,20 @@ self: super: {
       sha256 = "0r01004yg6pmi2ldv4ssd850bhfbcs4zhzg3qq8hs8z0bg2sxxrq";
     };
   };
+  "django-rest-swagger" = super.buildPythonPackage {
+    name = "django-rest-swagger-2.2.0";
+    doCheck = false;
+    propagatedBuildInputs = [
+      self."coreapi"
+      self."openapi-codec"
+      self."djangorestframework"
+      self."simplejson"
+    ];
+    src = fetchurl {
+      url = "https://files.pythonhosted.org/packages/89/b3/56348f840201f3760f384d6687cbff440db1df7d4315a007b8d8a37a355a/django-rest-swagger-2.2.0.tar.gz";
+      sha256 = "0nv8w00cfy1jic411q641kw8ljvlp4rckrp9rgkhms9pk7nsvxj8";
+    };
+  };
   "djangorestframework" = super.buildPythonPackage {
     name = "djangorestframework-3.8.2";
     doCheck = false;
@@ -61,12 +124,88 @@ self: super: {
       sha256 = "19rng6v1sw14mbjp5cplnrgxjnhlj8faalfw02iihi9s5w1k7zjy";
     };
   };
+  "idna" = super.buildPythonPackage {
+    name = "idna-2.7";
+    doCheck = false;
+    src = fetchurl {
+      url = "https://files.pythonhosted.org/packages/65/c4/80f97e9c9628f3cac9b98bfca0402ede54e0563b56482e3e6e45c43c4935/idna-2.7.tar.gz";
+      sha256 = "05jam7d31767dr12x0rbvvs8lxnpb1mhdb2zdlfxgh83z6k3hjk8";
+    };
+  };
+  "itypes" = super.buildPythonPackage {
+    name = "itypes-1.1.0";
+    doCheck = false;
+    src = fetchurl {
+      url = "https://files.pythonhosted.org/packages/d3/24/5e511590f95582efe64b8ad2f6dadd85c5563c9dcf40171ea5a70adbf5a9/itypes-1.1.0.tar.gz";
+      sha256 = "0wy0k6l85nwlxh9lkb2vl98j8a02311fm3wmkpmvz938znwppry6";
+    };
+  };
+  "jinja2" = super.buildPythonPackage {
+    name = "jinja2-2.10";
+    doCheck = false;
+    propagatedBuildInputs = [
+      self."MarkupSafe"
+    ];
+    src = fetchurl {
+      url = "https://files.pythonhosted.org/packages/56/e6/332789f295cf22308386cf5bbd1f4e00ed11484299c5d7383378cf48ba47/Jinja2-2.10.tar.gz";
+      sha256 = "190l36hfw3wb2n3n68yacjabxyb1pnxwn7vjx96cmjj002xy2jzq";
+    };
+  };
+  "openapi-codec" = super.buildPythonPackage {
+    name = "openapi-codec-1.3.2";
+    doCheck = false;
+    propagatedBuildInputs = [
+      self."coreapi"
+    ];
+    src = fetchurl {
+      url = "https://files.pythonhosted.org/packages/78/e5/e0b5aba60c645dde952bc8a9df1f2b0bef27302908839b0a29284c9245d4/openapi-codec-1.3.2.tar.gz";
+      sha256 = "0i91imvzwxm8r1a8jfw012vzczs0843150rnx80wclyzkql67khv";
+    };
+  };
   "pytz" = super.buildPythonPackage {
     name = "pytz-2018.5";
     doCheck = false;
     src = fetchurl {
       url = "https://files.pythonhosted.org/packages/ca/a9/62f96decb1e309d6300ebe7eee9acfd7bccaeedd693794437005b9067b44/pytz-2018.5.tar.gz";
       sha256 = "0xzj5gkpdn2da8m6j47chlp6zrzcypv9m0fjv4236q3jw4fyzfgz";
+    };
+  };
+  "requests" = super.buildPythonPackage {
+    name = "requests-2.19.1";
+    doCheck = false;
+    propagatedBuildInputs = [
+      self."chardet"
+      self."idna"
+      self."urllib3"
+      self."certifi"
+    ];
+    src = fetchurl {
+      url = "https://files.pythonhosted.org/packages/54/1f/782a5734931ddf2e1494e4cd615a51ff98e1879cbe9eecbdfeaf09aa75e9/requests-2.19.1.tar.gz";
+      sha256 = "0snf8xxdzsgh1x2zv3vilvbrv9jbpmnfagzzb1rjmmvflckdh8pc";
+    };
+  };
+  "simplejson" = super.buildPythonPackage {
+    name = "simplejson-3.16.0";
+    doCheck = false;
+    src = fetchurl {
+      url = "https://files.pythonhosted.org/packages/e3/24/c35fb1c1c315fc0fffe61ea00d3f88e85469004713dab488dee4f35b0aff/simplejson-3.16.0.tar.gz";
+      sha256 = "19cws1syk8jzq2pw43878dv6fjkb0ifvjpx0i9aajix6kc9jkwxi";
+    };
+  };
+  "uritemplate" = super.buildPythonPackage {
+    name = "uritemplate-3.0.0";
+    doCheck = false;
+    src = fetchurl {
+      url = "https://files.pythonhosted.org/packages/cd/db/f7b98cdc3f81513fb25d3cbe2501d621882ee81150b745cdd1363278c10a/uritemplate-3.0.0.tar.gz";
+      sha256 = "0781gm9g34wa0asc19dx81ng0nqq07igzv3bbvdqmz13pv7469n0";
+    };
+  };
+  "urllib3" = super.buildPythonPackage {
+    name = "urllib3-1.23";
+    doCheck = false;
+    src = fetchurl {
+      url = "https://files.pythonhosted.org/packages/3c/d2/dc5471622bd200db1cd9319e02e71bc655e9ea27b8e0ce65fc69de0dac15/urllib3-1.23.tar.gz";
+      sha256 = "1bvbd35q3zdcd7gsv38fwpizy7p06dr0154g5gfybrvnbvhwb2m6";
     };
   };
 

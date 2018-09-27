@@ -4,6 +4,9 @@ from rest_framework import routers
 from holoport_manager_api.support import views
 from django.contrib import admin
 from rest_framework_jwt.views import obtain_jwt_token
+from rest_framework_swagger.views import get_swagger_view
+
+schema_view = get_swagger_view(title='Pastebin API')
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
@@ -16,5 +19,6 @@ urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^api-token-auth/', obtain_jwt_token),
-    path('admin/', admin.site.urls)
+    path('admin/', admin.site.urls),
+    url(r'^$', schema_view)
 ]
