@@ -11,15 +11,20 @@ class SupportSession(models.Model):
     uuid = models.UUIDField(primary_key=False, default=uuid.uuid4, editable=False)
 
     def save(self, *args, **kwargs):
-        directory = '/home/holoport/.ssh'
+        #TODO refactor for sending queue msg to systemd service
+        #instead of writing file directly
+        directory = '/home/manager/.ssh'
         if not os.path.exists(directory):
             os.makedirs(directory)
-        path = '/home/holoport/.ssh/support_key'
-        f = open(path,'w')
-        support_key = File(f)
-        support_key.write(self.public_key)
-        f.close()
-        support_key.close()
+        path = '/home/manager/.ssh/support_key'
+        with open(path,'w') as f:
+            with File(f) as support_key:
+                support_key.write(self.public_key)
+        #f = open(path,'w')
+        #support_key = File(f)
+        #support_key.write(self.public_key)
+        #f.close()
+        #support_key.close()
         subprocess.run(['sudo', 'systemctl', 'start', 'sshd.service'])
         super().save(*args, **kwargs)
 
@@ -29,7 +34,7 @@ def auto_delete_file_on_delete(sender, instance, **kwargs):
     Deletes file from filesystem
     when corresponding `SupportSession` object is deleted.
     """
-    path = '/home/holoport/.ssh/support_key'
+    path = '/home/manager/.ssh/support_key'
     if os.path.isfile(path):
         os.remove(path)
         subprocess.run(['sudo', 'systemctl', 'stop', 'sshd.service'])
