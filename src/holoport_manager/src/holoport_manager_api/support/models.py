@@ -20,11 +20,6 @@ class SupportSession(models.Model):
         with open(path,'w') as f:
             with File(f) as support_key:
                 support_key.write(self.public_key)
-        #f = open(path,'w')
-        #support_key = File(f)
-        #support_key.write(self.public_key)
-        #f.close()
-        #support_key.close()
         subprocess.run(['sudo', 'systemctl', 'start', 'sshd.service'])
         super().save(*args, **kwargs)
 
