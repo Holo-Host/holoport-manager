@@ -3,8 +3,8 @@
 , setup ? import (pkgs.fetchFromGitHub {
     owner = "datakurre";
     repo = "setup.nix";
-    rev = "cac63eaa00eb70437a935a4b82e1d2e2fe156890";
-    sha256 = "1rqa79cyj1bzrqz5n7fsrl98zd1npg4ljzi8fmaxsgq5rsa4j78r";
+    rev = "d991abe23efde4a0bc5de2a0b4672cca0126c151";
+    sha256 = "0zglrif1hncs84ia28m03ca324y8aqnjqygzsji7x0bnfn77hpqm";
   })
 }:
 

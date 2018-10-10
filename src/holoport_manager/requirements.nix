@@ -13,14 +13,14 @@ self: super: {
     };
   };
   "django" = super.buildPythonPackage {
-    name = "django-2.1";
+    name = "django-2.1.2";
     doCheck = false;
     propagatedBuildInputs = [
       self."pytz"
     ];
     src = fetchurl {
-      url = "https://files.pythonhosted.org/packages/b6/cf/8cbe9bd4bb83ce2dd277564b43435edb7b151a099458e63706d10ec9e4fa/Django-2.1.tar.gz";
-      sha256 = "0dv184lgp7scq8cr4422rrvkd8npyiqww0zw50ygcim5smw6093z";
+      url = "https://files.pythonhosted.org/packages/8b/03/4c74d3712919613f2c611e6689522df507a2753a92049009661a81b4b72f/Django-2.1.2.tar.gz";
+      sha256 = "0ibbs76pzy8zd47yviljrp1s66fmbf5b62fixayaznj7pdzavg7g";
     };
   };
   "django-cors-headers" = super.buildPythonPackage {
@@ -69,8 +69,4 @@ self: super: {
       sha256 = "0xzj5gkpdn2da8m6j47chlp6zrzcypv9m0fjv4236q3jw4fyzfgz";
     };
   };
-
-### Test requirements
-
-  
 }
